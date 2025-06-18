@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amulya C | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: #ffffff;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      position: relative;
+    }
+    header img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid white;
+      margin-bottom: 20px;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+    header p a {
+      color: white;
+      text-decoration: underline;
+    }
+    nav {
+      background-color: #333;
+      padding: 10px 0;
+    }
+    .navbar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+    .navbar li {
+      margin: 0 15px;
+    }
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 5px 10px;
+    }
+    .navbar a:hover {
+      background-color: #667eea;
+      border-radius: 5px;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      color: #764ba2;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
+    .skills i {
+      margin-right: 10px;
+      color: #667eea;
+    }
+    .card {
+      background: #f9f9f9;
+      border-left: 4px solid #764ba2;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+    .project img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .btn {
+      background: #764ba2;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #5e4b8b;
+    }
+    iframe {
+      width: 100%;
+      height: 200px;
+      margin-top: 10px;
+      border-radius: 10px;
+    }
+    footer {
+      text-align: center;
+      background: #333;
+      color: white;
+      padding: 30px;
+      margin-top: 40px;
+    }
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="C:\Users\amuly\OneDrive\Pictures\professional pic.jpg" alt="Amulya Photo">
+    <h1>Hari Naga Amulya Chodisetty</h1>
+    <p>
+      <i class="fas fa-envelope"></i> amulyachodisetty2004@gmail.com |
+      <i class="fas fa-phone"></i> +91 8466850081 |
+      <i class="fab fa-linkedin"></i>
+      <a href="https://linkedin.com/in/amulya-chodisetty" target="_blank">LinkedIn</a>
+    </p>
+    <a class="btn" href="./Amulya_Resume.pdf" target="_blank">Download Resume</a>
+  </header>
+
+  <nav>
+    <ul class="navbar">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+    </ul>
+  </nav>
+
+  <section id="home">
+    <h2><i class="fas fa-user"></i> Career Objective</h2>
+    <p>An enthusiastic AIML undergraduate passionate about building impactful solutions and eager to contribute to real-world projects using my skills in programming, ML, and creative media.</p>
+  </section>
+
+  <section id="education">
+    <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+    <div class="card">
+      <strong>B.Tech (AI & ML), 2022 – Present</strong><br>
+      Shri Vishnu Engineering College for Women – CGPA: 8.78
+    </div>
+    <div class="card">
+      <strong>Intermediate (MPC), 2020 – 2022</strong><br>
+      Oxford Junior College – 925/1000
+    </div>
+    <div class="card">
+      <strong>ICSE, 2018 – 2020</strong><br>
+      Ongole Public School – 82.7%
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2><i class="fas fa-cogs"></i> Skills</h2>
+    <ul class="skills">
+      <li><i class="fas fa-code"></i> C, Java, Python</li>
+      <li><i class="fas fa-database"></i> SQL, Machine Learning</li>
+      <li><i class="fas fa-tools"></i> Git, VS Code, OpenWeaver</li>
+      <li><i class="fas fa-pencil-alt"></i> Content Writing, Graphic Designing</li>
+      <li><i class="fas fa-microphone-alt"></i> Audio & Video Editing</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2><i class="fas fa-laptop-code"></i> Projects</h2>
+
+    <div class="card project">
+      <strong>College Quora</strong><br>
+      <em>Tech Stack:</em> Python, MySQL<br>
+      A platform where students can ask and answer questions about their colleges, share updates, and build a college community.
+
+      <a class="btn" href="https://gitlab.com/Amulya_Chodisetty/quora" target="_blank">View on GitLab</a>
+    </div>
+    </div>
+    <div class="card project">
+      <strong>Trip Advisor Review Sentiment Analysis</strong><br>
+      <em>Tech Stack:</em> Python, Streamlit, Machine Learning, NLP<br>
+      A sentiment analysis project classifying Trip Advisor app reviews as positive or negative using NLP and ML techniques.<br>
+      <a class="btn" href="https://github.com/AmulyaChodisetty/sentiment-analysis" target="_blank">View on GitHub</a>
+    </div>
+  </section>
+
+  <section>
+    <h2><i class="fas fa-star"></i> Achievements & Activities</h2>
+    <ul>
+      <li>Smart India Hackathon – Participant</li>
+      <li>Unstop Grid 5.0 & Tata Imagination Challenge – Second Round Qualifier</li>
+      <li>TBI Hackathon – Developed "Khana Korner" (AI Food Recommender)</li>
+      <li>Podcast Host – <i class="fab fa-youtube"></i> <a href="https://youtube.com/@mounamelanoyii" target="_blank">Mounamelanoyi</a></li>
+      <li>Vice President – Vishnu Podcast</li>
+      <li>Mentor – Vishnu Student Success Center</li>
+      <li>State/National Fencing Medalist & Softball Player</li>
+    </ul>
+    
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Hari Naga Amulya Chodisetty</p>
+  </footer>
+</body>
+</html>
