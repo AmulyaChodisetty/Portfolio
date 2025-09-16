@@ -1,235 +1,875 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Amulya C | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hari Naga Amulya Chodisetty — AI/ML Portfolio</title>
+  <meta name="description" content="Portfolio of Hari Naga Amulya Chodisetty — AI/ML undergraduate, podcaster, and national-level fencer. Projects: College Quora, TripAdvisor Sentiment Analysis, Emotion Detection." />
+  <meta property="og:title" content="Amulya C — AI/ML Portfolio" />
+  <meta property="og:description" content="AI/ML undergraduate • Podcaster • Fencer • Projects: College Quora, Sentiment Analysis, Emotion Detection" />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      font-family: 'Roboto', sans-serif;
-      box-sizing: border-box;
+    /* VARIABLES */
+    :root {
+      --bg: #f5f7fa;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --accent-1: #6c63ff;
+      --accent-2: #a16ee7;
+      --text: #111827;
+      --glass: rgba(255, 255, 255, 0.6);
+      --radius: 12px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --shadow-lg: 0 10px 30px rgba(50,50,93,0.12);
     }
-    html {
-      scroll-behavior: smooth;
+    [data-theme="dark"] {
+      --bg: #0b0f18;
+      --card: #0f1724;
+      --muted: #9ca3af;
+      --accent-1: #7c5cff;
+      --accent-2: #a98cff;
+      --text: #e6eef8;
+      --glass: rgba(255, 255, 255, 0.03);
     }
+
+    /* BASE STYLES */
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      background: #f2f4f8;
-      color: #222;
+      margin: 0;
+      font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       line-height: 1.6;
     }
-    header {
-      background: linear-gradient(135deg, #667eea, #764ba2);
+    img { max-width: 100%; height: auto; }
+    a { color: var(--accent-1); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* HEADER / HERO */
+    header.site-hero {
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
       color: white;
       padding: 60px 20px;
       text-align: center;
-      position: relative;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      border-bottom-left-radius: 24px;
+      border-bottom-right-radius: 24px;
+      box-shadow: var(--shadow-lg);
     }
-    header img {
-      width: 130px;
-      height: 130px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid white;
-      margin-bottom: 15px;
-    }
-    header h1 {
-      font-size: 2.4rem;
-      margin-bottom: 5px;
-    }
-    header p {
-      font-size: 1rem;
-    }
-    header p a {
-      color: #fff;
-      text-decoration: underline;
-    }
-    nav {
-      background-color: #333;
-      padding: 10px 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .navbar {
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
       display: flex;
-      justify-content: center;
+      gap: 32px;
+      align-items: center;
       flex-wrap: wrap;
-      list-style: none;
+      justify-content: center;
     }
-    .navbar li {
-      margin: 0 12px;
+    .profile-photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 6px 18px rgba(2, 6, 23, 0.3);
+      transition: transform 0.3s ease;
     }
-    .navbar a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 6px 12px;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-    }
-    .navbar a:hover {
-      background-color: #555;
-    }
-    section {
-      padding: 60px 20px;
-      max-width: 960px;
-      margin: auto;
-    }
-    h2 {
-      color: #5a3fa0;
-      margin-bottom: 20px;
-      font-size: 1.8rem;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 5px;
-    }
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-    ul li {
-      margin-bottom: 10px;
-    }
-    .skills i {
-      margin-right: 10px;
-      color: #667eea;
-    }
-    .card {
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
+    .profile-photo:hover { transform: scale(1.05); }
+    h1.name { font-size: 2rem; margin: 0; }
+    p.role { opacity: 0.9; margin-top: 6px; font-weight: 500; font-size: 1.1rem; }
+    .hero-cta { margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
     .btn {
-      background: #764ba2;
+      background: rgba(255, 255, 255, 0.15);
       color: white;
       padding: 10px 18px;
-      border-radius: 30px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       text-decoration: none;
-      display: inline-block;
-      margin-top: 10px;
-      transition: background-color 0.3s;
+      font-weight: 600;
+      backdrop-filter: blur(4px);
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      transition: all 0.2s ease;
     }
     .btn:hover {
-      background: #5e4b8b;
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(13, 16, 45, 0.2);
+      text-decoration: none;
     }
-    iframe {
+    .socials a { color: white; margin: 0 8px; font-size: 1.25rem; opacity: 0.95; transition: transform 0.2s ease; }
+    .socials a:hover { transform: scale(1.1); }
+
+    /* NAVBAR */
+    nav.mainnav {
+      position: sticky;
+      top: 16px;
+      z-index: 1200;
+      display: flex;
+      justify-content: center;
+      padding: 8px 16px;
+    }
+    .nav-inner {
+      max-width: 1100px;
       width: 100%;
-      height: 200px;
-      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: var(--card);
+      border-radius: 12px;
+      padding: 8px 16px;
+      box-shadow: var(--shadow-md);
+    }
+    .logo-mini { display: flex; align-items: center; gap: 10px; color: var(--text); font-weight: 600; }
+    .nav-links { display: flex; gap: 4px; align-items: center; }
+    .nav-links a {
+      padding: 8px 14px;
+      border-radius: 8px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.2s ease;
+    }
+    .nav-links a.active {
+      background: var(--bg);
+      box-shadow: var(--shadow-sm);
+    }
+    .theme-toggle, .mobile-toggle {
+      background: var(--bg);
+      border-radius: 8px;
+      padding: 8px 10px;
+      border: 0;
+      cursor: pointer;
+      color: var(--text);
+      transition: background 0.2s ease;
+    }
+    .theme-toggle:hover, .mobile-toggle:hover { background: var(--muted); }
+    .mobile-toggle { display: none; }
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      top: 64px;
+      background: var(--card);
+      border-radius: 12px;
+      padding: 12px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: block; padding: 10px; border-radius: 8px; font-weight: 500; }
+    .mobile-menu a:hover { background: var(--bg); }
+
+    /* MAIN CONTENT & SECTIONS */
+    .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+    section.card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-md);
+    }
+    h2.section-title {
+      font-size: 1.5rem;
+      color: var(--accent-1);
+      margin: 0 0 16px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .muted { color: var(--muted); font-size: 0.95rem; }
+    .kbd {
+      background: var(--bg);
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--text);
+      white-space: nowrap;
+    }
+    .kbd i { color: var(--muted); margin-right: 4px; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 300px; gap: 24px; }
+    .card.small { background: var(--glass); padding: 16px; border-radius: 12px; }
+    .about-details { display: flex; flex-direction: column; gap: 8px; }
+
+    /* EDUCATION TIMELINE */
+    .timeline { position: relative; padding-left: 20px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 6px;
+      width: 2px;
+      height: calc(100% - 12px);
+      background: linear-gradient(180deg, var(--accent-1), var(--accent-2));
+      border-radius: 2px;
+    }
+    .timeline-item { position: relative; padding: 12px 12px 12px 32px; margin-bottom: 8px; }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 20px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--card);
+      border: 2px solid var(--accent-1);
+      box-shadow: 0 0 0 4px var(--bg);
+    }
+    .edu-meta { font-weight: 700; font-size: 1.1rem; }
+    .muted-small { color: var(--muted); font-size: 0.9rem; }
+
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .skill {
+      padding: 14px;
       border-radius: 10px;
+      background: var(--bg);
     }
-    footer {
-      text-align: center;
-      background: #222;
-      color: white;
-      padding: 20px;
-      font-size: 0.9rem;
+    .skill .label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-weight: 600; }
+    .bar { height: 10px; background: rgba(0, 0, 0, 0.06); border-radius: 999px; overflow: hidden; }
+    .bar > span {
+      display: block;
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+      width: 0%;
+      transition: width 900ms ease;
     }
-    @media (max-width: 768px) {
-      .navbar {
-        flex-direction: column;
-        align-items: center;
-      }
+    [data-theme="dark"] .bar { background: rgba(255,255,255,0.1); }
+
+    /* PROJECTS */
+    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .project-card {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      border-radius: 12px;
+      padding: 16px;
+      background: var(--bg);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .project-thumb { width: 180px; height: 120px; background: #ddd; border-radius: 8px; object-fit: cover; flex-shrink: 0; }
+    .tags { margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap; }
+    .tag {
+      background: var(--card);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .project-actions { margin-top: 12px; display: flex; gap: 8px; align-items: center; }
+
+    /* ACHIEVEMENTS */
+    .ach-list { display: flex; flex-direction: column; gap: 12px; list-style: none; padding: 0; }
+    .ach-list li { display: flex; align-items: flex-start; gap: 12px; }
+    .ach-list li:before {
+      content: '•';
+      color: var(--accent-1);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    /* CONTACT */
+    .contact-grid { display: grid; grid-template-columns: 1fr 340px; gap: 24px; }
+    .contact-card { padding: 16px; border-radius: 12px; }
+    .contact-card input, .contact-card textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      background: var(--bg);
+      color: var(--text);
+      margin-top: 6px;
+      margin-bottom: 12px;
+      font-size: 1rem;
+    }
+    .contact-card label { font-weight: 500; font-size: 0.95rem; color: var(--muted); }
+    .copy-email {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px dashed rgba(0, 0, 0, 0.08);
+      cursor: pointer;
+      background: var(--bg);
+    }
+
+    /* FOOTER */
+    footer { padding: 24px; text-align: center; color: var(--muted); margin-top: 30px; }
+
+    /* MODAL */
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(2, 6, 23, 0.7);
+      z-index: 2000;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .modal.open { display: flex; opacity: 1; }
+    .modal-card {
+      background: var(--card);
+      width: min(900px, 96%);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 20px 60px rgba(2, 6, 23, 0.5);
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+    }
+    .modal.open .modal-card { transform: scale(1); }
+    .modal-close {
+      background: transparent;
+      border: 0;
+      font-size: 1.1rem;
+      cursor: pointer;
+      color: var(--muted);
+      padding: 8px;
+      transition: color 0.2s ease;
+    }
+    .modal-close:hover { color: var(--text); }
+
+    /* RESPONSIVE */
+    @media (max-width: 920px) {
+      .projects-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .hero-inner { gap: 24px; }
+      .nav-links { display: none; }
+      .mobile-toggle { display: inline-block; }
+    }
+    @media (max-width: 600px) {
+      .skills-grid { grid-template-columns: 1fr; }
+      .project-card { flex-direction: column; text-align: center; }
+      .project-thumb { width: 100%; height: 160px; }
+      .project-actions { justify-content: center; }
+      h1.name { font-size: 1.6rem; }
+    }
+    .btn {
+  padding:10px 16px;
+  border-radius:999px;
+  font-weight:600;
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
+  text-decoration:none;
+  transition: all 0.2s ease-in-out;
+  cursor:pointer;
+}
+
+/* Primary button (blue background + white text) */
+.btn-primary {
+  background:#2563eb;  /* blue */
+  color:white;
+  border:2px solid #2563eb;
+}
+.btn-primary:hover {
+  background:#1d4ed8;
+  border-color:#1d4ed8;
+}
+
+/* Outline button (white background + blue text) */
+.btn-outline {
+  background:white;
+  color:#2563eb;
+  border:2px solid #2563eb;
+}
+.btn-outline:hover {
+  background:#2563eb;
+  color:white;
+}
   </style>
 </head>
 <body>
-  <header>
-    <img src="professionalpic.jpg" alt="Amulya Photo">
-    <h1>Hari Naga Amulya Chodisetty</h1>
-    <p>
-      <i class="fas fa-envelope"></i> amulyachodisetty2004@gmail.com |
-      <i class="fas fa-phone"></i> +91 8466850081 |
-      <i class="fab fa-linkedin"></i>
-      <a href="https://linkedin.com/in/amulya-chodisetty" target="_blank">LinkedIn</a>
-    </p>
-    <a class="btn" href="./Amulya_Resume.pdf" target="_blank">Get Resume</a>
+
+  <header class="site-hero" role="banner">
+    <div class="hero-inner">
+      <img class="profile-photo" src="./professionalpic.jpg" alt="Profile photo of Hari Naga Amulya Chodisetty">
+      <div style="min-width:260px;max-width:680px;text-align:left">
+        <h1 class="name">Hari Naga Amulya Chodisetty</h1>
+        <p class="role">AI & ML Undergraduate • Podcaster • National-level Fencing Player</p>
+        <p class="muted" style="margin-top:8px">Shri Vishnu Engineering College for Women — CGPA: <strong>8.85 / 10</strong></p>
+
+        <div class="hero-cta" aria-hidden="false">
+          <a class="btn" href="./22b01a4237 Resume 1.pdf" target="_blank" rel="noopener">
+            <i class="fa-regular fa-file-lines"></i> Resume
+          </a>
+          <a class="btn" href="#contact">
+            <i class="fa-solid fa-envelope"></i> Contact
+          </a>
+          <div class="socials" aria-label="Social links">
+            <a href="https://github.com/AmulyaChodisetty" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/amulya-chodisetty-0093ab257" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://youtube.com/@mounamelanoyii" target="_blank" rel="noopener" title="YouTube Mounamelanoyi"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <nav>
-    <ul class="navbar">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-    </ul>
+  <nav class="mainnav" aria-label="Primary navigation">
+    <div class="nav-inner container" style="position:relative">
+      <div class="logo-mini" aria-hidden="true">
+        <span style="color:var(--accent-1)">Amulya</span>
+      </div>
+
+      <div class="nav-links" role="menubar">
+        <a href="#about" class="nav-link" data-target="about" role="menuitem">About</a>
+        <a href="#education" class="nav-link" data-target="education" role="menuitem">Education</a>
+        <a href="#skills" class="nav-link" data-target="skills" role="menuitem">Skills</a>
+        <a href="#projects" class="nav-link" data-target="projects" role="menuitem">Projects</a>
+        <a href="#achievements" class="nav-link" data-target="achievements" role="menuitem">Achievements</a>
+        <a href="#contact" class="nav-link" data-target="contact" role="menuitem">Contact</a>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:10px">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+          <i id="themeIcon" class="fa-solid fa-moon"></i>
+        </button>
+        <button class="mobile-toggle" id="mobileToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+      <div class="mobile-menu" id="mobileMenu" role="menu" aria-hidden="true">
+        <a href="#about" class="mobile-link" role="menuitem">About</a>
+        <a href="#education" class="mobile-link" role="menuitem">Education</a>
+        <a href="#skills" class="mobile-link" role="menuitem">Skills</a>
+        <a href="#projects" class="mobile-link" role="menuitem">Projects</a>
+        <a href="#achievements" class="mobile-link" role="menuitem">Achievements</a>
+        <a href="#contact" class="mobile-link" role="menuitem">Contact</a>
+      </div>
+    </div>
   </nav>
 
-  <section id="home">
-    <h2><i class="fas fa-user"></i> Career Objective</h2>
-    <p>An enthusiastic AIML undergraduate passionate about building impactful solutions and eager to contribute to real-world projects using my skills in programming, ML, and creative media.</p>
-  </section>
+  <main class="container" id="mainContent">
 
-  <section id="education">
-    <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-    <div class="card">
-      <strong>B.Tech (AI & ML), 2022 – Present</strong><br>
-      Shri Vishnu Engineering College for Women – CGPA: 8.78
-    </div>
-    <div class="card">
-      <strong>Intermediate (MPC), 2020 – 2022</strong><br>
-      Oxford Junior College – 925/1000
-    </div>
-    <div class="card">
-      <strong>ICSE, 2018 – 2020</strong><br>
-      Ongole Public School – 82.7%
-    </div>
-  </section>
+    <section id="about" class="card" aria-labelledby="aboutTitle">
+      <h2 id="aboutTitle" class="section-title"><i class="fa-solid fa-user"></i> About Me</h2>
+      <div class="about-grid">
+        <div>
+          <p>
+            Hi, I'm <strong>Hari Naga Amulya Chodisetty</strong>, an AI & ML undergraduate at Shri Vishnu Engineering College for Women (CGPA 8.85). I build practical ML & NLP solutions, create audio/video content for my podcast <em>Mounamelanoyi</em>, and enjoy mentoring juniors. I balance engineering with creative pursuits—hosting, audio editing, and competitive sports.
+          </p>
+          <p style="margin-top:10px" class="muted">
+            Strengths: Problem solving, quick prototyping, public speaking, teamwork, and content storytelling.
+          </p>
+          <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+            <span class="kbd"><i class="fa-solid fa-location-dot"></i> Bhimavaram, India</span>
+            <span class="kbd"><i class="fa-solid fa-phone"></i> <a href="tel:+918466850081">+91 84668 50081</a></span>
+          </div>
+        </div>
+        <aside class="card small" aria-label="Quick facts">
+          <h3 style="margin:0 0 10px 0; font-size: 1.2rem;">Quick Facts</h3>
+          <div class="about-details">
+            <p><strong>Degree:</strong> B.Tech (AI & ML)</p>
+            <p><strong>CGPA:</strong> 8.85 / 10</p>
+            <p><strong>Podcast:</strong> Mounamelanoyi (Host & Editor)</p>
+            <p><strong>Sports:</strong> National-level Fencing & Softball</p>
+            <p><strong>Mentor:</strong> Vishnu Student Success Center</p>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-  <section id="skills">
-    <h2><i class="fas fa-cogs"></i> Skills</h2>
-    <ul class="skills">
-      <li><i class="fas fa-code"></i> C, Java, Python</li>
-      <li><i class="fas fa-database"></i> SQL, Machine Learning</li>
-      <li><i class="fas fa-tools"></i> Git, VS Code, OpenWeaver</li>
-      <li><i class="fas fa-pencil-alt"></i> Content Writing, Graphic Designing</li>
-      <li><i class="fas fa-microphone-alt"></i> Audio & Video Editing</li>
-    </ul>
-  </section>
+    <section id="education" class="card" aria-labelledby="educationTitle">
+      <h2 id="educationTitle" class="section-title"><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+      <div class="timeline" role="list">
+        <div class="timeline-item" role="listitem">
+          <div class="edu-meta">B.Tech — AI & ML (2022 – Present)</div>
+          <div class="muted-small">Shri Vishnu Engineering College for Women • CGPA: 8.85</div>
+        </div>
+        <div class="timeline-item" role="listitem">
+          <div class="edu-meta">Intermediate — MPC (2020 – 2022)</div>
+          <div class="muted-small">Oxford Junior College • Marks: 925 / 1000</div>
+        </div>
+        <div class="timeline-item" role="listitem">
+          <div class="edu-meta">ICSE (2018 – 2020)</div>
+          <div class="muted-small">Ongole Public School • 82.7%</div>
+        </div>
+      </div>
+    </section>
 
-  <section id="projects">
-    <h2><i class="fas fa-laptop-code"></i> Projects</h2>
+    <section id="skills" class="card" aria-labelledby="skillsTitle">
+      <h2 id="skillsTitle" class="section-title"><i class="fa-solid fa-cogs"></i> Skills</h2>
+      <div style="display:flex;gap:24px;flex-wrap:wrap">
+        <div style="flex:1;min-width:280px">
+          <h3 style="margin:0 0 12px 0;">Technical Skills</h3>
+          <div class="skills-grid" role="list">
+            <div class="skill" role="listitem">
+              <div class="label"><span>Python</span><span class="muted-small">Advanced</span></div>
+              <div class="bar" data-value="92"><span style="width:0%"></span></div>
+            </div>
+            <div class="skill" role="listitem">
+              <div class="label"><span>C & Java</span><span class="muted-small">Proficient</span></div>
+              <div class="bar" data-value="82"><span style="width:0%"></span></div>
+            </div>
+            <div class="skill" role="listitem">
+              <div class="label"><span>Machine Learning & NLP</span><span class="muted-small">Proficient</span></div>
+              <div class="bar" data-value="85"><span style="width:0%"></span></div>
+            </div>
+            <div class="skill" role="listitem">
+              <div class="label"><span>SQL & Databases</span><span class="muted-small">Proficient</span></div>
+              <div class="bar" data-value="78"><span style="width:0%"></span></div>
+            </div>
+            <div class="skill" role="listitem">
+              <div class="label"><span>Git, VS Code, Streamlit</span><span class="muted-small">Comfortable</span></div>
+              <div class="bar" data-value="80"><span style="width:0%"></span></div>
+            </div>
+            <div class="skill" role="listitem">
+              <div class="label"><span>OpenWeaver</span><span class="muted-small">Familiar</span></div>
+              <div class="bar" data-value="70"><span style="width:0%"></span></div>
+            </div>
+          </div>
+        </div>
+        <div style="flex-basis:340px;min-width:280px">
+          <h3 style="margin:0 0 12px 0;">Creative & Soft Skills</h3>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div class="skill"><div class="label"><span>Content Writing</span><span class="muted-small">Strong</span></div><div class="bar" data-value="88"><span style="width:0%"></span></div></div>
+            <div class="skill"><div class="label"><span>Audio & Video Editing</span><span class="muted-small">Strong</span></div><div class="bar" data-value="86"><span style="width:0%"></span></div></div>
+            <div class="skill"><div class="label"><span>Public Speaking & Mentoring</span><span class="muted-small">Confident</span></div><div class="bar" data-value="84"><span style="width:0%"></span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="card project">
-      <strong>College Quora</strong><br>
-      <em>Tech Stack:</em> Python, MySQL<br>
-      A platform where students can ask and answer questions about their colleges, share updates, and build a college community.
-      <a class="btn" href="https://gitlab.com/Amulya_Chodisetty/quora" target="_blank">View on GitLab</a>
-    </div>
-    <div class="card project">
-      <strong>Trip Advisor Review Sentiment Analysis</strong><br>
-      <em>Tech Stack:</em> Python, Streamlit, Machine Learning, NLP<br>
-      A sentiment analysis project classifying Trip Advisor app reviews as positive or negative using NLP and ML techniques.<br>
-      <a class="btn" href="https://github.com/AmulyaChodisetty/sentiment-analysis" target="_blank">View on GitHub</a>
-    </div>
-  </section>
+    <section id="projects" class="card" aria-labelledby="projectsTitle">
+      <h2 id="projectsTitle" class="section-title"><i class="fa-solid fa-laptop-code"></i> Projects</h2>
+      <div class="projects-grid">
+        <article class="project-card" tabindex="0" aria-labelledby="p1title">
+          <img src="./college-quora.png" alt="College Quora screenshot" class="project-thumb">
+          <div>
+            <h3 id="p1title" style="margin:0">College Quora</h3>
+            <p class="muted-small" style="margin-top:6px">A community platform for college students to ask & answer questions, share events and photos.</p>
+            <div class="tags" aria-hidden="true">
+              <span class="tag">Python</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">Web App</span>
+            </div>
+            
+            <div class="project-actions">
+              <button class="btn btn-primary" data-project="emotion" aria-controls="projectModal">
+  <i class="fa-solid fa-eye"></i> Details
+</button>
 
-  <section>
-    <h2><i class="fas fa-star"></i> Achievements & Activities</h2>
-    <ul>
-      <li>Smart India Hackathon – Participant</li>
-      <li>Unstop Grid 5.0 & Tata Imagination Challenge – Second Round Qualifier</li>
-      <li>TBI Hackathon – Developed "Khana Korner" (AI Food Recommender)</li>
-      <li>Podcast Host – <i class="fab fa-youtube"></i> <a href="https://youtube.com/@mounamelanoyii" target="_blank">Mounamelanoyi</a></li>
-      <li>Vice President – Vishnu Podcast</li>
-      <li>Mentor – Vishnu Student Success Center</li>
-      <li>State/National Fencing Medalist & Softball Player</li>
-    </ul>
-  </section>
+<a class="btn btn-outline" href="https://gitlab.com/Amulya_Chodisetty/quora" target="_blank" rel="noopener">
+  <i class="fa-brands fa-github"></i> GitLab
+</a>
+           </div>
+          </div>
+        </article>
+        <article class="project-card" tabindex="0" aria-labelledby="p2title">
+          <img src="./senti.png" alt="TripAdvisor Sentiment Analysis screenshot" class="project-thumb">
+          <div>
+            <h3 id="p2title" style="margin:0">TripAdvisor Sentiment Analysis</h3>
+            <p class="muted-small" style="margin-top:6px">NLP pipeline + ML models to classify TripAdvisor reviews as positive/negative and extract insights.</p>
+            <div class="tags" aria-hidden="true">
+              <span class="tag">NLP</span>
+              <span class="tag">Streamlit</span>
+              <span class="tag">Python</span>
+            </div>
+            <div class="project-actions">
+              <button class="btn btn-primary" data-project="emotion" aria-controls="projectModal">
+  <i class="fa-solid fa-eye"></i> Details
+</button>
+
+<a class="btn btn-outline" href="https://github.com/AmulyaChodisetty/sentiment-analysis" target="_blank" rel="noopener">
+  <i class="fa-brands fa-github"></i> GitHub
+</a>
+              
+            </div>
+          </div>
+        </article>
+        <article class="project-card" tabindex="0" aria-labelledby="p3title">
+          <img src="emotion.png" alt="Emotion Detection screenshot" class="project-thumb">
+          <div>
+            <h3 id="p3title" style="margin:0">Emotion Detection using DeepFace</h3>
+            <p class="muted-small" style="margin-top:6px">Real-time webcam emotion detection with DeepFace & OpenCV, shows dominant emotion overlay on stream.</p>
+            <div class="tags" aria-hidden="true">
+              <span class="tag">DeepFace</span>
+              <span class="tag">OpenCV</span>
+              <span class="tag">Python</span>
+            </div>
+            <div class="project-actions">
+              </button>
+
+<a class="btn btn-outline" href="https://github.com/AmulyaChodisetty/face-Detection" target="_blank" rel="noopener">
+  <i class="fa-brands fa-github"></i> GitHub
+</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="achievements" class="card" aria-labelledby="achTitle">
+      <h2 id="achTitle" class="section-title"><i class="fa-solid fa-trophy"></i> Achievements & Activities</h2>
+      <div style="display:flex;gap:24px;flex-wrap:wrap">
+        <div style="flex:1;min-width:300px">
+          <h3 style="margin:0 0 12px 0;">Co-curricular</h3>
+          <ul class="ach-list">
+            <li><strong>Smart India Hackathon</strong> — Participant</li>
+            <li><strong>Unstop Grid 5.0</strong> — Second Round Qualifier</li>
+            <li><strong>Tata Imagination Challenge</strong> — Second Round Qualifier</li>
+            <li><strong>TBI Hackathon</strong> — Built "Khana Korner" (AI food recommender)</li>
+          </ul>
+        </div>
+        <div style="flex-basis:340px;min-width:260px">
+          <h3 style="margin:0 0 12px 0;">Extracurricular</h3>
+          <ul class="ach-list">
+            <li><strong>Podcast:</strong> Creator & Host — <a href="https://youtube.com/@mounamelanoyii" target="_blank" rel="noopener">Mounamelanoyi</a></li>
+            <li><strong>Leadership:</strong> Vice President — Vishnu Podcast</li>
+            <li><strong>Sports:</strong> National-level Fencing & Softball competitor</li>
+            <li><strong>Mentorship:</strong> Mentor — Vishnu Student Success Center (C programming)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="card" aria-labelledby="contactTitle">
+      <h2 id="contactTitle" class="section-title"><i class="fa-solid fa-envelope-open-text"></i> Contact</h2>
+      <div class="contact-grid">
+        <form class="contact-card" id="contactForm" aria-label="Contact form" onsubmit="event.preventDefault(); sendMail();">
+          <label for="name">Your name</label>
+          <input id="name" name="name" placeholder="Your name" required>
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" placeholder="you@example.com" required>
+          <label for="message">Message</label>
+          <textarea id="message" rows="5" placeholder="Write a short message..." required></textarea>
+          <div style="display:flex;gap:8px;align-items:center">
+            <button class="btn" type="submit"><i class="fa-solid fa-paper-plane"></i> Send</button>
+            <button class="btn" type="button" id="copyEmailBtn"><i class="fa-regular fa-copy"></i> Copy Email</button>
+          </div>
+        </form>
+
+        <aside class="contact-card" aria-label="Contact details">
+          <h3 style="margin-top:0">Get in touch</h3>
+          <p class="muted-small">I'm open to internships, collaborations, and part-time opportunities in AI/ML, NLP and podcast production.</p>
+          <div class="about-details" style="margin-top:16px;">
+            <p><strong>Email:</strong> <a id="emailAddress" href="mailto:amulyachodisetty2004@gmail.com">amulyachodisetty2004@gmail.com</a></p>
+            <p><strong>Phone:</strong> <a href="tel:+918466850081">+91 84668 50081</a></p>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/amulya-chodisetty-0093ab257" target="_blank" rel="noopener">Profile</a></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+  </main>
 
   <footer>
-    <p>&copy; 2025 Hari Naga Amulya Chodisetty</p>
+    <div class="container">
+      <div style="display:flex;justify-content:center;gap:12px;align-items:center;margin-bottom:10px">
+        <a class="muted-small" href="./22b01a4237 Resume 1.pdf" target="_blank" rel="noopener"><i class="fa-regular fa-file-lines"></i> Download Resume</a>
+        <span class="muted-small">•</span>
+        <a class="muted-small" href="https://github.com/AmulyaChodisetty" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+      </div>
+      <div class="muted-small">© 2025 Hari Naga Amulya Chodisetty</div>
+    </div>
   </footer>
+
+  <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card" role="document">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+        <h3 id="modalTitle" style="margin:0">Project</h3>
+        <button class="modal-close" id="modalClose" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <p id="modalDesc" class="muted-small"></p>
+      <div id="modalBody" style="margin-top:12px"></div>
+    </div>
+  </div>
+
+  <script>
+    // Project data
+    
+    const projects = {
+      'college-quora': {
+        title: 'College Quora',
+        desc: 'Community platform for students to ask/answer questions, post updates and photos. Built with Python backend & MySQL. Role: Backend + database schema + integrations',
+        body: `
+          <p><strong>Tech:</strong> Python, MySQL</p>
+          <p><strong>Team:</strong> 5</p>
+          <p><strong>Features:</strong> Post Q&A, comment threads, event photo uploads, search and filters.</p>
+          <p><a href="https://gitlab.com/Amulya_Chodisetty/quora" target="_blank" rel="noopener">View on GitLab</a></p>
+        `
+      },
+      'sentiment': {
+        title: 'TripAdvisor Review Sentiment Analysis',
+        desc: 'NLP & ML project to classify TripAdvisor reviews (positive/negative) with data preprocessing, feature engineering and model comparison; deployed a Streamlit demo for exploration.',
+        body: `
+          <p><strong>Tech:</strong> Python, NLTK/spacy, scikit-learn, Streamlit</p>
+          <p><strong>Features:</strong> Text cleaning, vectorization, model training, accuracy & confusion matrix visualization.</p>
+          <p><a href="https://github.com/AmulyaChodisetty/sentiment-analysis" target="_blank" rel="noopener">View on GitHub</a></p>
+        `
+      },
+      'emotion': {
+        title: 'Emotion Detection using DeepFace',
+        desc: 'Real-time webcam emotion detection displaying dominant emotion overlay using DeepFace & OpenCV.',
+        body: `
+          <p><strong>Tech:</strong> DeepFace, OpenCV, Python</p>
+          <p><strong>Use:</strong> Real-time inference, webcam overlay, emotion logging for demonstrations.</p>
+          <p><a href="https://github.com/AmulyaChodisetty" target="_blank" rel="noopener">View on GitHub</a></p>
+        `
+      }
+    };
+
+    // DOM Elements
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = Array.from(document.querySelectorAll('main section'));
+    const modal = document.getElementById('projectModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalBody = document.getElementById('modalBody');
+    const modalClose = document.getElementById('modalClose');
+    const copyBtn = document.getElementById('copyEmailBtn');
+
+    // Theme Toggle
+    function applyTheme(theme) {
+      if (theme === 'dark') {
+        root.setAttribute('data-theme', 'dark');
+        themeIcon.className = 'fa-solid fa-sun';
+      } else {
+        root.removeAttribute('data-theme');
+        themeIcon.className = 'fa-solid fa-moon';
+      }
+    }
+    const savedTheme = localStorage.getItem('theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    applyTheme(savedTheme);
+    themeToggle.addEventListener('click', () => {
+      const nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      applyTheme(nextTheme);
+      localStorage.setItem('theme', nextTheme);
+    });
+
+    // Mobile Menu Toggle
+    mobileToggle.addEventListener('click', () => {
+      const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true' || false;
+      mobileToggle.setAttribute('aria-expanded', !isExpanded);
+      mobileMenu.classList.toggle('open');
+      mobileMenu.setAttribute('aria-hidden', isExpanded);
+    });
+    document.querySelectorAll('.mobile-link').forEach(a => {
+      a.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+      });
+    });
+
+    // ScrollSpy for active nav links
+    function onScroll() {
+      const scrollPos = window.scrollY + 120;
+      const currentSection = sections.find(s => s.offsetTop <= scrollPos && (s.offsetTop + s.offsetHeight) > scrollPos);
+      navLinks.forEach(l => {
+        if (currentSection && l.getAttribute('href') === '#' + currentSection.id) {
+          l.classList.add('active');
+        } else {
+          l.classList.remove('active');
+        }
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    document.addEventListener('DOMContentLoaded', onScroll);
+
+    // Animate skill bars
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const bar = entry.target;
+          const value = bar.getAttribute('data-value');
+          bar.querySelector('span').style.width = `${value}%`;
+          observer.unobserve(bar);
+        }
+      });
+    }, { threshold: 0.8 });
+    document.querySelectorAll('.bar').forEach(bar => observer.observe(bar));
+
+    // Contact Form (mailto fallback)
+    function sendMail() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if (!name || !email || !message) {
+        alert('Please fill all fields');
+        return;
+      }
+      const subject = encodeURIComponent(`Portfolio message from ${name}`);
+      const body = encodeURIComponent(`${message}\n\n---\nFrom: ${name}\nEmail: ${email}`);
+      window.location.href = `mailto:amulyachodisetty2004@gmail.com?subject=${subject}&body=${body}`;
+    }
+    window.sendMail = sendMail;
+
+    // Copy Email Button
+    copyBtn.addEventListener('click', async () => {
+      const email = 'amulyachodisetty2004@gmail.com';
+      try {
+        await navigator.clipboard.writeText(email);
+        copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+        setTimeout(() => copyBtn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy Email', 2000);
+      } catch (e) {
+        alert('Could not copy. Email: ' + email);
+      }
+    });
+
+    // Project Modal
+    document.querySelectorAll('[data-project]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-project');
+        const p = projects[id];
+        if (!p) return;
+        modalTitle.textContent = p.title;
+        modalDesc.textContent = p.desc;
+        modalBody.innerHTML = p.body;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+      });
+    });
+    modalClose.addEventListener('click', () => {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+    });
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+    });
+  </script>
 </body>
 </html>
